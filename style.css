@@ -1,0 +1,16 @@
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #DFDFDF;
+}
+
+form {
+    margin-top: 10%;
+}
+
+.input-field {
+    margin: 1rem;
+}
+
