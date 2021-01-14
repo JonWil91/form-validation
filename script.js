@@ -14,13 +14,33 @@ form.addEventListener('submit', (e) => {
         messages.push('Password must be less than 20 characters')
     }
 
-    let lowerCaseLetters = /[a-z]/g;
+    // Variable regular expression searching for lowercase letters
+    const lowerCaseLetters = /[a-z]/g;
 
     if (!password.value.match(lowerCaseLetters)) {
         messages.push('Password needs to contain at least one lowercase letter')
     }
 
-   
+    // Variable regular expression searching for uppercase letters
+    const upperCaseLetters = /[A-Z]/g;
+
+    if (!password.value.match(upperCaseLetters)) {
+        messages.push('Password needs to contain at least one uppercase letter')
+    }
+
+    // Variable regular expression searching for numbers
+    const numbers = /[0-9]/g;
+
+    if (!password.value.match(numbers)) {
+        messages.push('Password needs to contain at least one number')
+    }
+
+    // Variable regular expression searching for special characters
+    const specialCharacters = /[!@#$%^&*]/g;
+
+    if (!password.value.match(specialCharacters)) {
+        messages.push('Password needs to contain at least one special character')
+    }
 
     if (password.value === 'password') {
         messages.push('Password cannot be password')
@@ -29,6 +49,6 @@ form.addEventListener('submit', (e) => {
     // If there is any error message, the form will not be submitted
     if (messages.length > 0) {
         e.preventDefault()
-        errorElement.innerText = messages.join(', ')
+        errorElement.innerText = messages.join('\n')
     }
 })
